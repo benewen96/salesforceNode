@@ -1,0 +1,76 @@
+<html ng-app="salesforce">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+	
+	<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+  		<title>salesforce</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="core.js"></script>
+	
+	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.indigo-pink.min.css">
+	<script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script>
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Async Salesforce demo</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+    </div>
+    <div class="mdl-layout__header-row">
+		Total records: {{total}}
+    </div>
+  </header>
+  <body ng-controller="salesforceController">
+  <main class="mdl-layout__content">
+    <div class="page-content">
+	
+	
+	<table id ="myTable" class="mdl-data-table mdl-js-data-table" style="width:100%">
+		<thead>
+			<tr>
+				<th>Type</th>
+				<th>Name</th>
+				<th>Id</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+			<tr ng-repeat="r in records">
+				<td>{{r.attributes.type}}</td>
+				<td>{{ r.Name }}</td>
+				<td>{{ r.Id }}</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	
+	<div class="mdl-grid">
+	<div class="mdl-layout-spacer"></div>
+    <div class="mdl-cell mdl-cell--4-col">
+	<form>
+		<!-- bind form value formData.text in angular -->
+		<div class="mdl-textfield mdl-js-textfield">
+		    <input class="mdl-textfield__input" type="text" id="recordname" ng-model="formData.text">
+		    <label class="mdl-textfield__label" for="recordname">Record name...</label>
+  		</div>
+		<!-- create() triggers angular method to create sf record -->
+		<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" type="submit"  ng-click="create()">
+			<i class="material-icons">add</i>
+		</button>
+		
+	</form>
+	</div>
+	<div class="mdl-layout-spacer"></div>
+  	 
+<!-- Your content goes here --></div>
+</main>
+
+
+</body>
+
+</html>
