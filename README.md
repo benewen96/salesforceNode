@@ -1,7 +1,7 @@
 #salesforceNode
 
 ##Intro
-An web app written in Node.js, Express and Angular that connects to the salesforce platform to store data.
+A web app written in Node.js, Express and Angular that connects to the salesforce platform to store data.
 
 ###Why?
 
